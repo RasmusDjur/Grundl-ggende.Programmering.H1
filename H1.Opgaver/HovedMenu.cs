@@ -28,6 +28,9 @@ namespace C_opgaverP1
                 Console.WriteLine("\t16. \tGrundlæggende BMI-beregner");
                 Console.WriteLine("\t17. \tString Formattering");
                 Console.WriteLine("\t18. \tTalgenkendelse med Løkke");
+                Console.WriteLine("\t19. \tGrunding af Versionsstyring");
+                Console.WriteLine("\t20. \tBasis Login System");
+                Console.WriteLine("\t21. \tB Rutinerede Opgaver");
                 Console.WriteLine("\t0. \tAfslut");
 
                 //læs brugerens valg 
@@ -84,6 +87,15 @@ namespace C_opgaverP1
                     break;
                 case "18":
                     Opgave18.Kør();
+                    break;
+                case "19":
+                    Opgave19.Kør();
+                    break;
+                case "20":
+                    Opgave20.Kør();
+                    break;
+                case "21":
+                    Opgave21.Kør();
                     break;
                 case "0":
                     Console.Clear();
