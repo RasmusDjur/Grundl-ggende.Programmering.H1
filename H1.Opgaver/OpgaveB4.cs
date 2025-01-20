@@ -1,6 +1,7 @@
 class OpgaveB4
 {
-    
+        
+
         // Metode til at konvertere dollars til danske kroner
         public static double KonverterUSDtilDKK(double beløbUSD)
         {

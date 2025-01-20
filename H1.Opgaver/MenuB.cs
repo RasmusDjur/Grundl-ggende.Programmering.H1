@@ -15,6 +15,7 @@ namespace C_opgaverP1
                 Console.WriteLine("\t2. \tList Sortering");
                 Console.WriteLine("\t3. \tPalindrome Checker");
                 Console.WriteLine("\t4. \tValutakonvertering");
+                Console.WriteLine("\t5. \tValutakonvertering");
                 Console.WriteLine("\t0. \tAfslut");
 
                 //læs brugerens valg 
@@ -35,6 +36,9 @@ namespace C_opgaverP1
                     break;
                 case "4":
                     OpgaveB4.Kør();
+                    break;
+                case "5":
+                    OpgaveB5.Kør();
                     break;
                 case "0":
                     Console.Clear();
