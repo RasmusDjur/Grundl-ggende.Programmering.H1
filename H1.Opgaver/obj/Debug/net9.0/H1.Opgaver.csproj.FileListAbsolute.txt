@@ -1,0 +1,14 @@
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/H1.Opgaver.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/H1.Opgaver.AssemblyInfoInputs.cache
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/H1.Opgaver.AssemblyInfo.cs
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/H1.Opgaver.csproj.CoreCompileInputs.cache
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/bin/Debug/net9.0/H1.Opgaver
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/bin/Debug/net9.0/H1.Opgaver.deps.json
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/bin/Debug/net9.0/H1.Opgaver.runtimeconfig.json
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/bin/Debug/net9.0/H1.Opgaver.dll
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/bin/Debug/net9.0/H1.Opgaver.pdb
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/H1.Opgaver.dll
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/refint/H1.Opgaver.dll
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/H1.Opgaver.pdb
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/H1.Opgaver.genruntimeconfig.cache
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/ref/H1.Opgaver.dll
