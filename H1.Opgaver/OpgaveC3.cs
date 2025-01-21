@@ -6,15 +6,18 @@ namespace C_opgaverP1
 {
     internal class OpgaveC3
     {
+        // dictionary til at gemme udgifter opdelt på kategorier 
         static Dictionary<string, double> udgifter = new Dictionary<string, double>();
-        static double indkomst;
+        static double indkomst; // månedlige indkomst
         static string filePath = "budgetHistorik.txt";  // Fil til at gemme historik og prognoser
 
+        // hovedmetode der håndtere brugerens valg i menuen 
         public static void Kør()
         {
-            bool exit = false;
-            while (!exit)
-            {
+            
+            while (true)
+            {   
+                // menu for budgetplanlægning og udgiftssporing 
                 Console.Clear();
                 Console.WriteLine("Avanceret Budgetplanlægger og Udgiftssporing");
                 Console.WriteLine("1. Indtast Indkomst og Udgifter");
@@ -39,8 +42,7 @@ namespace C_opgaverP1
                         VisHistorik();
                         break;
                     case "0":
-                        exit = true;
-                        break;
+                        return;
                     default:
                         Console.WriteLine("Ugyldigt valg, prøv igen.");
                         break;
@@ -64,7 +66,7 @@ namespace C_opgaverP1
             {
                 Console.Write($"Indtast udgift for {kategori}: ");
                 double udgift = double.Parse(Console.ReadLine());
-                udgifter[kategori] = udgift;
+                udgifter[kategori] = udgift; // gem udgiften i dictionary'en 
             }
 
             // Gem data til fil
@@ -76,11 +78,14 @@ namespace C_opgaverP1
         {
             Console.Clear();
             double totalUdgift = 0;
+
+            // beregn total udgift ved at summere alle udgifter 
             foreach (var udgift in udgifter.Values)
             {
                 totalUdgift += udgift;
             }
-
+            
+            // beregn overskud/underskud ved at trække total udgift fra indkomsten 
             double overskudUnderskud = indkomst - totalUdgift;
             Console.WriteLine($"Indkomst: {indkomst} kr.");
             Console.WriteLine($"Total Udgift: {totalUdgift} kr.");
@@ -95,15 +100,20 @@ namespace C_opgaverP1
             Console.Clear();
             Console.WriteLine("Prognose for de næste 6 måneder:");
             double totalUdgift = 0;
+
+            // Beregn total udgift på samme måde som i VisØkonomiskStatus
             foreach (var udgift in udgifter.Values)
             {
                 totalUdgift += udgift;
             }
-
+            
+            // beregn overskud/underskud for nuværende måned 
             double overskudUnderskud = indkomst - totalUdgift;
+
+            // vis prognose for de næste 6 måneder 
             for (int i = 1; i <= 6; i++)
             {
-                double prognose = overskudUnderskud * i;
+                double prognose = overskudUnderskud * i; // // Beregn overskud/underskud for den i'te måned
                 Console.WriteLine($"Måned {i}: {prognose} kr.");
             }
             Console.ReadKey();
@@ -113,12 +123,14 @@ namespace C_opgaverP1
         public static void VisHistorik()
         {
             Console.Clear();
+            
+            // tjek om filen eksistere 
             if (File.Exists(filePath))
             {
-                var historik = File.ReadAllLines(filePath);
+                var historik = File.ReadAllLines(filePath); // las alle linjer fra filen 
                 foreach (var line in historik)
                 {
-                    Console.WriteLine(line);
+                    Console.WriteLine(line); // vis hver linje fra filen 
                 }
             }
             else
@@ -131,11 +143,14 @@ namespace C_opgaverP1
         // Gem data til fil
         public static void SaveData()
         {
+            // opret en liste med data der skal gemmes i filen 
             List<string> data = new List<string>
             {
                 $"Indkomst: {indkomst} kr.",
-                $"Udgifter: {string.Join(", ", udgifter)}"
+                $"Udgifter: {string.Join(", ", udgifter)}" // konverter udgifter til en string og tilføj til data
             };
+
+            // gem data til fil (tilføj til filen, hvis den allerede eksistere)
             File.AppendAllLines(filePath, data);
         }
     }

@@ -5,9 +5,10 @@ namespace C_opgaverP1
 {
     internal class OpgaveC2
     {
+        // liste til at holde styr på medarbejder 
         static List<Medarbejder> medarbejdere = new List<Medarbejder>();
 
-        // Medarbejderklasse
+        // Medarbejderklasse der indholder oplysninger om medarbejderen 
         public class Medarbejder
         {
             public string Navn { get; set; }
@@ -15,6 +16,7 @@ namespace C_opgaverP1
             public double Timeløn { get; set; }
             public double Skatteprocent { get; set; }
 
+            // konstruktor der initialiserer en medarbejder med navn, arbejdstimer, timeløn og skatteprocent
             public Medarbejder(string navn, int arbejdstimer, double timeløn, double skatteprocent)
             {
                 Navn = navn;
@@ -23,14 +25,14 @@ namespace C_opgaverP1
                 Skatteprocent = skatteprocent;
             }
 
-            // Beregn bruttoløn
+            // Beregn bruttoløn ( før skat )
             public double BeregnBruttoløn() => Arbejdstimer * Timeløn;
 
-            // Beregn nettoløn
+            // Beregn nettoløn ( efter skat )
             public double BeregnNettoløn() => BeregnBruttoløn() * (1 - Skatteprocent / 100);
         }
 
-        // Start metode for OpgaveC2
+        // Hovedmetoden for programmer, der kører brugeres valgmuligheder 
         public static void Kør()
         {
             while (true)
@@ -77,6 +79,7 @@ namespace C_opgaverP1
             Console.Clear();
             Console.WriteLine("Tilføj ny medarbejder");
 
+            // indhent oplysninger om medarbejderen fra brugeren 
             Console.Write("Indtast navn: ");
             string navn = Console.ReadLine();
             Console.Write("Indtast arbejdstimer: ");
@@ -86,6 +89,7 @@ namespace C_opgaverP1
             Console.Write("Indtast skatteprocent: ");
             double skatteprocent = double.Parse(Console.ReadLine());
 
+            // opret ny bruger og tilføj den til listen
             Medarbejder nyMedarbejder = new Medarbejder(navn, arbejdstimer, timeløn, skatteprocent);
             medarbejdere.Add(nyMedarbejder);
             Console.WriteLine("Medarbejder tilføjet.");
@@ -99,16 +103,21 @@ namespace C_opgaverP1
             Console.Write("Indtast navnet på medarbejderen, du vil redigere: ");
             string navn = Console.ReadLine();
 
+            // find medarbejder baseret på navn 
             var medarbejder = medarbejdere.Find(m => m.Navn.Equals(navn, StringComparison.OrdinalIgnoreCase));
             if (medarbejder != null)
             {
                 Console.WriteLine("Rediger medarbejderens oplysninger:");
+
+                // opdater medarbejderens arbejdstimer 
                 Console.Write($"Arbejdstimer (nu: {medarbejder.Arbejdstimer}): ");
                 medarbejder.Arbejdstimer = int.Parse(Console.ReadLine());
 
+                // opdater medarbejderens timeløn
                 Console.Write($"Timeløn (nu: {medarbejder.Timeløn}): ");
                 medarbejder.Timeløn = double.Parse(Console.ReadLine());
 
+                // opdater medarbejderens skatteprocent 
                 Console.Write($"Skatteprocent (nu: {medarbejder.Skatteprocent}%): ");
                 medarbejder.Skatteprocent = double.Parse(Console.ReadLine());
 
@@ -128,6 +137,7 @@ namespace C_opgaverP1
             Console.Write("Indtast navnet på medarbejderen, du vil slette: ");
             string navn = Console.ReadLine();
 
+            // find medarbejder baseret på navn og fjern fra listen 
             var medarbejder = medarbejdere.Find(m => m.Navn.Equals(navn, StringComparison.OrdinalIgnoreCase));
             if (medarbejder != null)
             {
@@ -146,8 +156,11 @@ namespace C_opgaverP1
         {
             Console.Clear();
             Console.WriteLine("Alle Medarbejdere:");
+
+            // tjek om der er medarbejdere i listen 
             if (medarbejdere.Count > 0)
-            {
+            {   
+                // vis detaljer om hver medarbejder 
                 foreach (var medarbejder in medarbejdere)
                 {
                     Console.WriteLine($"Navn: {medarbejder.Navn}");

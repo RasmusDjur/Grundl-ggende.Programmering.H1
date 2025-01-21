@@ -8,7 +8,7 @@ namespace C_opgaverP1
     {
         public static void Kør()
         {
-            // Indlæs bøger fra fil
+            // Indlæs bøger fra fil, når systemet startes 
             LibrarySystem.LoadBooks();
 
             while (true)
@@ -51,9 +51,13 @@ namespace C_opgaverP1
     // Biblioteksstyringssystem
     public static class LibrarySystem
     {
+        // liste over bøger i bilioteket 
         static List<Book> books = new List<Book>();
+
+        // filsti til bibliotekets bogfil
         static string filePath = "library_books.txt";  // Filen hvor bøgerne gemmes
 
+        // indløs bøger fra filen 
         public static void LoadBooks()
         {
             try
@@ -65,13 +69,15 @@ namespace C_opgaverP1
                 }
                 else
                 {
+                    // indløs bøger fra filen, linje for linje 
                     string[] lines = File.ReadAllLines(filePath);
                     foreach (var line in lines)
                     {
-                        string[] parts = line.Split(',');
+                        string[] parts = line.Split(','); // del linjen op i felter
 
                         if (parts.Length == 4)
-                        {
+                        {   
+                            // skab bogobjekter baseret på data i filen 
                             string title = parts[0];
                             long isbn = long.Parse(parts[1]);
                             bool isBorrowed = bool.Parse(parts[2]);
@@ -86,19 +92,21 @@ namespace C_opgaverP1
             }
             catch (Exception ex)
             {
+                // håndtere fejl ved filindlæsning 
                 Console.WriteLine($"Fejl ved indlæsning af bøger: {ex.Message}");
             }
         }
 
         public static void CreateSampleBooks()
         {
+            // tilføjer nogle eksempelbøger til listen 
             books.Add(new Book { Title = "The Great Gatsby", ISBN = 9780743273565, IsBorrowed = false, Borrower = "" });
             books.Add(new Book { Title = "To Kill a Mockingbird", ISBN = 9780061120084, IsBorrowed = false, Borrower = "" });
             books.Add(new Book { Title = "1984", ISBN = 9780451524935, IsBorrowed = false, Borrower = "" });
             books.Add(new Book { Title = "Moby-Dick", ISBN = 9781503280786, IsBorrowed = false, Borrower = "" });
             books.Add(new Book { Title = "Pride and Prejudice", ISBN = 9781503290563, IsBorrowed = false, Borrower = "" });
 
-            SaveBooks();
+            SaveBooks(); // gem bøgerne i filen
             Console.WriteLine("Testbøger er blevet oprettet og gemt.");
         }
 
@@ -107,18 +115,21 @@ namespace C_opgaverP1
             List<string> lines = new List<string>();
 
             foreach (var book in books)
-            {
+            {   
+                // konvertere bogdata til CSV-format 
                 string line = $"{book.Title},{book.ISBN},{book.IsBorrowed},{book.Borrower}";
                 lines.Add(line);
             }
 
             try
             {
+                // gem alle linjer i filen
                 File.WriteAllLines(filePath, lines);
                 Console.WriteLine("Bøgerne er blevet gemt i filen.");
             }
             catch (Exception ex)
             {
+                // håndter fejl ved filskrivning 
                 Console.WriteLine($"Fejl ved gemning af bøger til fil: {ex.Message}");
             }
         }
@@ -131,6 +142,7 @@ namespace C_opgaverP1
 
             foreach (var book in books)
             {
+                // vis status for bog ledig/udlånt 
                 string status = book.IsBorrowed ? $"Lånt ud til: {book.Borrower}" : "Ledig";
                 Console.WriteLine($"{book.Title} (ISBN: {book.ISBN}) - {status}");
             }
@@ -169,7 +181,7 @@ namespace C_opgaverP1
                 return;
             }
 
-            var book = books.Find(b => b.ISBN == isbn);
+            var book = books.Find(b => b.ISBN == isbn); // find bogen i listen 
 
             if (book != null)
             {
@@ -182,10 +194,11 @@ namespace C_opgaverP1
                     Console.Write("Indtast dit navn: ");
                     string borrower = Console.ReadLine();
 
+                    // marker bogen som udlånt
                     book.IsBorrowed = true;
                     book.Borrower = borrower;
 
-                    SaveBooks();
+                    SaveBooks(); // gem ændringer 
                     Console.WriteLine($"Du har lånt '{book.Title}'.");
                 }
             }
@@ -223,6 +236,7 @@ namespace C_opgaverP1
                 return;
             }
 
+            // find bogen i listen 
             var book = books.Find(b => b.ISBN == isbn);
 
             if (book != null)
@@ -233,10 +247,11 @@ namespace C_opgaverP1
                 }
                 else
                 {
+                    // marker bogen som returneret 
                     book.IsBorrowed = false;
                     book.Borrower = "";
 
-                    SaveBooks();
+                    SaveBooks(); // gem ændringer 
                     Console.WriteLine($"Du har returneret '{book.Title}'.");
                 }
             }
