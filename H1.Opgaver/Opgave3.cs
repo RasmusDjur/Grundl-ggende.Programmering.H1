@@ -1,3 +1,4 @@
+using System;
 class Opgave3
 {
     public static void Kør()

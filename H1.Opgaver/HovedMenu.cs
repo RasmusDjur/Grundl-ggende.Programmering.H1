@@ -31,6 +31,7 @@ namespace C_opgaverP1
                 Console.WriteLine("\t19. \tGrunding af Versionsstyring");
                 Console.WriteLine("\t20. \tBasis Login System");
                 Console.WriteLine("\t21. \tB Rutinerede Opgaver");
+                Console.WriteLine("\t22. \tC Rutinerede Opgaver");
                 Console.WriteLine("\t0. \tAfslut");
 
                 //læs brugerens valg 
@@ -96,6 +97,9 @@ namespace C_opgaverP1
                     break;
                 case "21":
                     Opgave21.Kør();
+                    break;
+                case "22":
+                    Opgave22.Kør();
                     break;
                 case "0":
                     Console.Clear();

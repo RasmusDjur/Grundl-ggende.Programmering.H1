@@ -12,3 +12,4 @@
 /Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/H1.Opgaver.pdb
 /Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/H1.Opgaver.genruntimeconfig.cache
 /Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/ref/H1.Opgaver.dll
+/Users/rasmusdjur/Desktop/Grundl-ggende.Programmering.H1/H1.Opgaver/obj/Debug/net9.0/H1.Opgaver.sourcelink.json

@@ -1,0 +1,5 @@
+The Great Gatsby,9780743273565,False,
+To Kill a Mockingbird,9780061120084,False,
+1984,9780451524935,True,Rasmus
+Moby-Dick,9781503280786,False,
+Pride and Prejudice,9781503290563,False,

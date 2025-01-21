@@ -1,0 +1,4 @@
+Indkomst: 10000 kr.
+Udgifter: [Mad, 1200], [Transport, 1000], [Bolig, 3000], [Underholdning, 1000], [Øvrige, 500]
+Indkomst: 25000 kr.
+Udgifter: [Mad, 1600], [Transport, 1000], [Bolig, 5000], [Underholdning, 1500], [Øvrige, 1000]
